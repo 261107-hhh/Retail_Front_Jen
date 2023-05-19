@@ -2,7 +2,7 @@ pipeline {
     agent any
 	tools {
         // Install the Node package manager and add it to the path.
-        node 'node'
+        nodejs 'node'
     }
     // environment{
     //     CI = 'true'
