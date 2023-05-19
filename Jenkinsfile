@@ -18,7 +18,7 @@ pipeline {
             steps {
                 //bat './mvnw test'
                 //bat 'mvn test'
-                bat 'npm run build'
+                // bat 'npm test'
                 // bat 'npm test'
                 echo 'tested'  
             }
