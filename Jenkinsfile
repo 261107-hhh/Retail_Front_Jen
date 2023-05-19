@@ -4,9 +4,9 @@ pipeline {
         // Install the Node package manager and add it to the path.
         nodejs 'node'
     }
-    // environment{
-    //     CI = 'true'
-    // }
+    environment{
+        CI = 'false'
+    }
     stages {
         stage('Build') {
             steps {
