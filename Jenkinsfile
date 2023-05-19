@@ -26,7 +26,8 @@ pipeline {
         stage('Deploy') {
             steps {
 	            bat 'npm install -g serve'
-                bat 'npm run build -l 3001'
+                bat 'npm -s build -l 3001'
+                // serve -s build
             }
         }
        
