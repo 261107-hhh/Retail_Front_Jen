@@ -61,10 +61,10 @@ describe('Render App', () => {
 
   describe('Render Pages', () => {
 
-    jest.mock('react-router-dom', () => ({
-      ...jest.requireActual('react-router-dom'),
-      useParams: () => ({}),
-    }));
+    // jest.mock('react-router-dom', () => ({
+    //   ...jest.requireActual('react-router-dom'),
+    //   useParams: () => ({}),
+    // }));
 
     test('should render about Page', () => {
       render(
@@ -106,6 +106,9 @@ describe('Render App', () => {
       );
 
       const name = screen.getByLabelText(/Name/);
+      // const req1 = screen.getByPlaceholderText(/Enter Your Name Here/);
+      // const req2 = screen.getByPlaceholderText(/Enter Your Email Here/);
+      // expect(req1).required();
       const email = screen.getByLabelText(/Email/);
       expect(email).toBeInTheDocument();
       expect(name).toBeInTheDocument();

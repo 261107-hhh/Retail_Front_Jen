@@ -20,7 +20,7 @@ pipeline {
                 //bat 'mvn test'
                 // bat 'npm test'
                 // bat 'npm run build'
-                // bat 'npm test'
+                bat 'npm run test'
                 echo 'Build and tested'  
             }
         }
