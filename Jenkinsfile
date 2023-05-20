@@ -19,14 +19,14 @@ pipeline {
                 //bat './mvnw test'
                 //bat 'mvn test'
                 // bat 'npm test'
+                bat 'npm run build'
                 bat 'npm test'
-                echo 'tested'  
+                echo 'Build and tested'  
             }
         }
         stage('Deploy') {
             steps {
 	            bat 'npm install -g serve'
-                bat 'npm run build'
                 bat 'serve -s build'
             }
         }
