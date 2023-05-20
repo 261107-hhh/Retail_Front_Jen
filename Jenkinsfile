@@ -19,7 +19,7 @@ pipeline {
                 //bat './mvnw test'
                 //bat 'mvn test'
                 // bat 'npm test'
-                // bat 'npm test'
+                bat 'npm test'
                 echo 'tested'  
             }
         }

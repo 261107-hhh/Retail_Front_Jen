@@ -83,7 +83,7 @@ function Cart() {
       value.setCart(data)
       setCart(data)
       toast.success("Item Removed")
-      if(item.length === 0){
+      if (item.length === 0) {
         navigate("/store/all")
 
       }
@@ -212,40 +212,46 @@ function Cart() {
       }}>
 
         <Container >
-          <h1>Cart Items({cart.iteam.length})</h1>
-          <div className='mt-3'>
-            {cart.iteam.map((cartItem, index) => (
+          {cart.iteam.length >= 1 ? <>
+            <h1>Cart Items({cart.iteam.length})</h1>
+            <div className='mt-3'>
+              {cart.iteam.map((cartItem, index) => (
 
-              <Card className='mt-2' border-0 shadow-sm color='light'>
-                <CardBody>
-                  <img style={imagesStyle} src={Base_url + '/products/images/' + cartItem.product.productId} alt="" />
-                  <CardHeader><h4 className='text-center'>{cartItem.product.productName}</h4> </CardHeader>
+                <Card className='mt-2' border-0 shadow-sm color='light'>
+                  <CardBody>
+                    <img style={imagesStyle} src={Base_url + '/products/images/' + cartItem.product.productId} alt="" />
+                    <CardHeader><h4 className='text-center'>{cartItem.product.productName}</h4> </CardHeader>
 
-                </CardBody>
-                <CardText>
-                  <b> <h8 className="ms-3">Quantity: {cartItem.quantity}</h8></b>
-                </CardText>
-                <CardText className='sm-3'>
-                  <b> <h8 className='ms-3'>Prize: {cartItem.totalproductprize}</h8></b>
+                  </CardBody>
+                  <CardText>
+                    <b> <h8 className="ms-3">Quantity: {cartItem.quantity}</h8></b>
+                  </CardText>
+                  <CardText className='sm-3'>
+                    <b> <h8 className='ms-3'>Prize: {cartItem.totalproductprize}</h8></b>
 
-                </CardText>
+                  </CardText>
 
-                <div>
+                  <div>
 
-                  <Button onClick={() => IncreaseQty(cartItem.product.productId, cartItem.quantity + 1, cartItem.product.productQuantity)} color='success' size="sm" className='my-3 ms-3'>Increase Quantity</Button>
-                  <Button onClick={() => DecreaseQty(cartItem.product.productId, cartItem.quantity - 1)} color='primary' size="sm" className='my-3 ms-3'>Decrease Quantity</Button>
-                  <Button onClick={(event) => removeItemToCart(cartItem)} color='danger' size="sm" className='my-3 ms-3'>Remove Item</Button>
-                </div>
+                    <Button onClick={() => IncreaseQty(cartItem.product.productId, cartItem.quantity + 1, cartItem.product.productQuantity)} color='success' size="sm" className='my-3 ms-3'>Increase Quantity</Button>
+                    <Button onClick={() => DecreaseQty(cartItem.product.productId, cartItem.quantity - 1)} color='primary' size="sm" className='my-3 ms-3'>Decrease Quantity</Button>
+                    <Button onClick={(event) => removeItemToCart(cartItem)} color='danger' size="sm" className='my-3 ms-3'>Remove Item</Button>
+                  </div>
 
-                <CardFooter dangerouslySetInnerHTML={{ __html: cartItem.product.productDesc }} ></CardFooter>
+                  <CardFooter dangerouslySetInnerHTML={{ __html: cartItem.product.productDesc }} ></CardFooter>
 
-              </Card>
-            ))}
-            <Container className='my-3'>
-              {console.log(cart.iteam.length)}
-              {cart.iteam.length > 0 ? (<Button onClick={() => { setOrderProceed(true) }} block color='primary' size='lg'>Click Here To Proceed</Button>) : ''}
-            </Container>
-          </div>
+                </Card>
+              ))}
+              <Container className='my-3'>
+                {console.log(cart.iteam.length)}
+                {cart.iteam.length > 0 ? (<Button onClick={() => { setOrderProceed(true) }} block color='primary' size='lg'>Click Here To Proceed</Button>) : ''}
+              </Container>
+            </div>
+          </> : <h1 style={{
+            'display': 'flex',
+            'marginTop': '2rem',
+            'position': 'fixed'
+          }}>No product in cart</h1>}
         </Container>
       </div>
 
@@ -313,8 +319,8 @@ function Cart() {
         'marginBottom': '-15px',
         'height': '100vh'
       }}>
-      {cart ? cartHtml() : <h1>Loding...</h1>}
-    </Base>
+        {cart ? cartHtml() : <h1>Loding...</h1>}
+      </Base>
     </div >
   )
 }

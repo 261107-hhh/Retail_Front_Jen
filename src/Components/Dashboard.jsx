@@ -27,7 +27,6 @@ function Dashboard() {
   const openModal = (order) => {
     setModal(true)
     setSelectItem(order)
-    //console.log(selectItem)
     //console.log(selectItem.item[0].product.productName)
   }
   let imagesStyle = {
@@ -200,12 +199,12 @@ function Dashboard() {
   //   height: '90vh',
   //   // backgroundColor: 'rebeccapurple'
   // }
-  // const myStyle = {
-  //   'backgroundImage': "url('Images/Store.jpg')",
-  //   'height': "100%",
-  //   // 'marginBottom': '-325px'
-  //   // backgroundColor: "red"
-  // }
+  const myStyle = {
+    backgroundImage: "url('Images/Store.jpg')",
+    height: "100vh",
+    // 'marginBottom': '-325px'
+    // backgroundColor: "red"
+  }
 
   const htmlOrder = () => {
     return (
@@ -230,90 +229,108 @@ function Dashboard() {
               // 'backgroundImage': "url('https://img.freepik.com/free-photo/box-market-electronic-ordering-shop-basket_1421-567.jpg?w=996&t=st=1679485879~exp=1679486479~hmac=c784bbbc4eb07724200ba010aba07d15e6caf19fa7cb3c9c25431651e3d0b302')",
             }}
           >
-            <Card style={{
-              display: 'table',
-              width: 'auto',
-              marginTop: '52px',
-              marginLeft: '37%',
-              color: 'red'
-              //  width: 390, marginTop: 50, marginLeft: '35%', color: 'red' 
-            }}><h1>Your Order Details</h1></Card>
-            <Col md={{ size: 8, offset: 2 }} style={{ marginTop: 12 }}>
-              {order.map(order => (
-                <Card key={order.orderId} style={{ marginTop: 10 }} className={order.paymentStatus == 'PAID' ? 'border-success mt-2' : 'border-danger mt-2'}>
-                  <CardBody className='text-center' >
-                    <Row>
-                      <Col md={5}>
-                        <CardText>
-                          <h5>ORDER NUMBER  :{" " + order.orderId}</h5>
-                        </CardText>
-                      </Col>
+            {order.size >= 1 ?
+              <>
 
-                      <Col md={5}>
-                        <CardText style={{ marginLeft: 75 }}>
-                          <b> Create At:{formatDate(order.orderCreated)}</b>
-                        </CardText>
-                      </Col>
+                <Card style={{
+                  display: 'table',
+                  width: 'auto',
+                  marginTop: '52px',
+                  marginLeft: '37%',
+                  color: 'red'
+                  //  width: 390, marginTop: 50, marginLeft: '35%', color: 'red' 
+                }}><h1>Your Order Details</h1></Card>
+                <Col md={{ size: 8, offset: 2 }} style={{ marginTop: 12 }}>
+                  {order.map(order => (
+                    <Card key={order.orderId} style={{ marginTop: 10 }} className={order.paymentStatus == 'PAID' ? 'border-success mt-2' : 'border-danger mt-2'}>
+                      <CardBody className='text-center' >
+                        <Row>
+                          <Col md={5}>
+                            <CardText>
+                              <h5>ORDER NUMBER  :{" " + order.orderId}</h5>
+                            </CardText>
+                          </Col>
 
-                      <Col md={5}>
-                        <CardText>
-                          <h7> ADDRESS :{order.billingAddress}  </h7>
-                        </CardText>
-                      </Col>
-                      <Col md={5} style={{ marginLeft: 80 }}>
-                        <CardText >
-                          <h7>Payment Status : <b className={order.paymentStatus == 'PAID' ? 'text-success' : 'text-danger'}>{order.paymentStatus}</b> </h7>
-                        </CardText>
-                      </Col>
-                      <Col md={5}>
-                        <CardText md={5}>
-                          <h7>Order Status :    {order.orderStatus}</h7>
-                        </CardText>
-                      </Col>
-                      <Col md={5} style={{ marginLeft: 80 }}>
-                        <CardText>
-                          <h7>order Delivered:{order.orderDelivered ? formatDate(order.orderDelivered) : 'Order Not Deliver'}</h7>
-                        </CardText>
-                      </Col>
+                          <Col md={5}>
+                            <CardText style={{ marginLeft: 75 }}>
+                              <b> Create At:{formatDate(order.orderCreated)}</b>
+                            </CardText>
+                          </Col>
 
-                      <Col md={5}>
-                        <CardText >
-                          <h7>Bill Amount</h7>  :<b style={{ color: 'black' }}>{"₹" + order.orderAmout}</b>
-                        </CardText>
-                      </Col>
-                    </Row>
-                    <Container>
-                      {/* {console.log(order.paymentStatus+" this is payment statys")} */}
-                      {order.paymentStatus == "NOT PAID" ? <Button onClick={() => initiatePayment(order)} color='success' size='sm'>Pay Now</Button> : ""}
-                      <Button size='sm' onClick={() => openModal(order)} color='primary' className='ms-3'>View Product</Button>
-                    </Container>
-                  </CardBody>
+                          <Col md={5}>
+                            <CardText>
+                              <h7> ADDRESS :{order.billingAddress}  </h7>
+                            </CardText>
+                          </Col>
+                          <Col md={5} style={{ marginLeft: 80 }}>
+                            <CardText >
+                              <h7>Payment Status : <b className={order.paymentStatus == 'PAID' ? 'text-success' : 'text-danger'}>{order.paymentStatus}</b> </h7>
+                            </CardText>
+                          </Col>
+                          <Col md={5}>
+                            <CardText md={5}>
+                              <h7>Order Status :    {order.orderStatus}</h7>
+                            </CardText>
+                          </Col>
+                          <Col md={5} style={{ marginLeft: 80 }}>
+                            <CardText>
+                              <h7>order Delivered:{order.orderDelivered ? formatDate(order.orderDelivered) : 'Order Not Deliver'}</h7>
+                            </CardText>
+                          </Col>
 
-                </Card>
-              ))}
-            </Col>
+                          <Col md={5}>
+                            <CardText >
+                              <h7>Bill Amount</h7>  :<b style={{ color: 'black' }}>{"₹" + order.orderAmout}</b>
+                            </CardText>
+                          </Col>
+                        </Row>
+                        <Container>
+                          {/* {console.log(order.paymentStatus+" this is payment statys")} */}
+                          {order.paymentStatus == "NOT PAID" ? <Button onClick={() => initiatePayment(order)} color='success' size='sm'>Pay Now</Button> : ""}
+                          <Button size='sm' onClick={() => openModal(order)} color='primary' className='ms-3'>View Product</Button>
+                        </Container>
+                      </CardBody>
+
+                    </Card>
+                  ))}
+                </Col>
+              </>
+              : <h1 style={{
+                'display': 'flex',
+                'marginTop': '2rem',
+                'position': 'fixed'
+              }}>No Order Processing</h1>
+            }
           </div>
-        </Row>
+        </Row >
       </>
     )
   }
   return (
-    <div 
-    // style={myStyle}
-    >
+    <>
 
-      <Base>
+      <div
+        style={myStyle}
+      >
+        <Base>
+        </Base>
         <>
           {user && (
             <div>
 
             </div>
           )}
-          {order && htmlOrder()}
+          {order ? htmlOrder() : <h1>no user Logged in</h1>}
+          {/* {(user && order) ? htmlOrder() : <h6 style={{
+            'marginTop': '2rem',
+            'display': 'inline-flex',
+            'position': 'fixed',
+            'fontSize': '24px',
+          }}>No product present</h6>} */}
         </>
-        {modelHtml()}
-      </Base>
-    </div>
+        {/* {modelHtml()} */}
+      </div >
+    </>
   )
 }
 

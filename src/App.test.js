@@ -141,21 +141,50 @@ describe('Render App', () => {
       expect(text).toBeInTheDocument();
     })
 
+    test('should render users Cart', () => {
+      render(
+        <MemoryRouter initialEntries={['/user/cart']}>
+          <Routes>
+            <Route path="/user/cart" element={<Cart />} />
+          </Routes>
+        </MemoryRouter>
+      );
+
+      const text = screen.getByText(/Loding.../);
+      expect(text).toBeInTheDocument();
+    })
+
     // Only after login we can do this.
 
-    // test('should render User Dashboard Page', () => {
-    //   render(
-    //     <MemoryRouter initialEntries={['/user/dashboard']}>
-    //       <Routes>
-    //         <Route path="/user/dashboard" element={<Dashboard />} />
-    //       </Routes>
-    //     </MemoryRouter>
-    //   );
+    test('should render Dashboard ', () => {
+      render(
+        <MemoryRouter initialEntries={['/dashboard']}>
+          <Routes>
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Routes>
+        </MemoryRouter>
+      ); 
 
-    //   const text = screen.getByText(/ /);
-    //   expect(text).toBeInTheDocument();
-    // })
+      const text = screen.getByText(/no user Logged in/);
+      // screen.getByRole()
+      expect(text).toBeInTheDocument();
+    })
 
+    test('should render User Dashboard Page', () => {
+      render(
+        <MemoryRouter initialEntries={['/user/dashboard']}>
+          <Routes>
+            <Route path="/user/dashboard" element={<Dashboard />} />
+          </Routes>
+        </MemoryRouter>
+      ); 
+
+      const text = screen.getByText(/no user Logged in/);
+      // screen.getByRole()
+      expect(text).toBeInTheDocument();
+    })
+
+    
 
   })
 
