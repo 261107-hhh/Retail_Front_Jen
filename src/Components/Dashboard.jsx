@@ -313,7 +313,16 @@ function Dashboard() {
 
             </div>
           )}
-          {order ? htmlOrder() : <h1>No product present</h1>}
+          {order && htmlOrder()}
+        </>
+        {/* <> */}
+
+          {/* {user && (
+            <div>
+
+            </div>
+          )}
+          {order ? htmlOrder() : <h1>No product present</h1>} */}
           {/* {(user && order) ? htmlOrder() : <h6 style={{
             'marginTop': '2rem',  
             'display': 'inline-flex',
@@ -321,8 +330,8 @@ function Dashboard() {
             'fontSize': '24px',
           }}>Not Available</h6>} */}
           {/* {user ? htmlOrder(): <h1>No user</h1>} */}
-        </>
-        {/* {modelHtml()} */}
+        {/* </> */}
+        {modelHtml()}
       </div >
     </>
   )
