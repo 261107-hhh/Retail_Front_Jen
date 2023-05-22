@@ -53,11 +53,36 @@ import Store from "./Components/Store";
 import Viewproduct from "./Components/Viewproduct";
 import Cart from "./Components/Cart";
 import Dashboard from "./Components/Dashboard";
+import Banner from "./Components/Banner";
 
 describe('Render App', () => {
   test('should render app without errors', () => {
     render(<App />);
   })
+
+  test('should render Navbar', () => {
+    render(<App />);;
+    const text = screen.getAllByRole('link');
+    const str = text[0];
+    expect(str).toBeInTheDocument();
+
+  })
+
+  test('should render Banner', () => {
+    render(
+      <MemoryRouter initialEntries={['/banner']}>
+        <Routes>
+          <Route path ="/banner" element ={<Banner />}>
+          </Route>
+        </Routes>
+      </MemoryRouter>
+    )
+    const list = screen.getByRole('list');
+    expect(list).toBeInTheDocument();
+    expect(list).toHaveClass('react-multi-carousel-track');
+
+  })
+
 
   describe('Render Pages', () => {
 
@@ -115,7 +140,6 @@ describe('Render App', () => {
 
     })
 
-
     test('should render Store Page', async () => {
       await render(
         <MemoryRouter initialEntries={['/store/all']}>
@@ -159,7 +183,6 @@ describe('Render App', () => {
     })
 
     // Only after login we can do this.
-
     test('should render Dashboard ', () => {
       render(
         <MemoryRouter initialEntries={['/dashboard']}>
@@ -167,9 +190,9 @@ describe('Render App', () => {
             <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </MemoryRouter>
-      ); 
+      );
 
-      const text = screen.getByText(/no user Logged in/);
+      const text = screen.getByText(/Not Available/);
       // screen.getByRole()
       expect(text).toBeInTheDocument();
     })
@@ -181,14 +204,14 @@ describe('Render App', () => {
             <Route path="/user/dashboard" element={<Dashboard />} />
           </Routes>
         </MemoryRouter>
-      ); 
+      );
 
-      const text = screen.getByText(/no user Logged in/);
+      const text = screen.getByText(/Not Available/);
       // screen.getByRole()
       expect(text).toBeInTheDocument();
     })
 
-    
+
 
   })
 

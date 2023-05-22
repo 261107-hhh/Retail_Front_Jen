@@ -110,7 +110,6 @@ function App() {
             <Route path="/user" element={<PrivateRoutes />}>
               <Route path="dashboard" element={<Dashboard />} />
               <Route path="cart" element={<Cart />} />
-
             </Route>
           </Routes>
         </BrowserRouter>

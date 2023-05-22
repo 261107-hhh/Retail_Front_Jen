@@ -229,7 +229,6 @@ function Dashboard() {
               // 'backgroundImage': "url('https://img.freepik.com/free-photo/box-market-electronic-ordering-shop-basket_1421-567.jpg?w=996&t=st=1679485879~exp=1679486479~hmac=c784bbbc4eb07724200ba010aba07d15e6caf19fa7cb3c9c25431651e3d0b302')",
             }}
           >
-            {order.size >= 1 ?
               <>
 
                 <Card style={{
@@ -295,12 +294,6 @@ function Dashboard() {
                   ))}
                 </Col>
               </>
-              : <h1 style={{
-                'display': 'flex',
-                'marginTop': '2rem',
-                'position': 'fixed'
-              }}>No Order Processing</h1>
-            }
           </div>
         </Row >
       </>
@@ -320,13 +313,14 @@ function Dashboard() {
 
             </div>
           )}
-          {order ? htmlOrder() : <h1>no user Logged in</h1>}
+          {order ? htmlOrder() : <h1>No product present</h1>}
           {/* {(user && order) ? htmlOrder() : <h6 style={{
-            'marginTop': '2rem',
+            'marginTop': '2rem',  
             'display': 'inline-flex',
             'position': 'fixed',
             'fontSize': '24px',
-          }}>No product present</h6>} */}
+          }}>Not Available</h6>} */}
+          {/* {user ? htmlOrder(): <h1>No user</h1>} */}
         </>
         {/* {modelHtml()} */}
       </div >
