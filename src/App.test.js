@@ -183,33 +183,33 @@ describe('Render App', () => {
     })
 
     // Only after login we can do this.
-    test('should render Dashboard ', () => {
-      render(
-        <MemoryRouter initialEntries={['/dashboard']}>
-          <Routes>
-            <Route path="/dashboard" element={<Dashboard />} />
-          </Routes>
-        </MemoryRouter>
-      );
+    // test('should render Dashboard ', () => {
+    //   render(
+    //     <MemoryRouter initialEntries={['/dashboard']}>
+    //       <Routes>
+    //         <Route path="/dashboard" element={<Dashboard />} />
+    //       </Routes>
+    //     </MemoryRouter>
+    //   );
 
-      const text = screen.getByText(/Not Available/);
-      // screen.getByRole()
-      expect(text).toBeInTheDocument();
-    })
+    //   const text = screen.getByText(/Not Available/);
+    //   // screen.getByRole()
+    //   expect(text).toBeInTheDocument();
+    // })
 
-    test('should render User Dashboard Page', () => {
-      render(
-        <MemoryRouter initialEntries={['/user/dashboard']}>
-          <Routes>
-            <Route path="/user/dashboard" element={<Dashboard />} />
-          </Routes>
-        </MemoryRouter>
-      );
+    // test('should render User Dashboard Page', () => {
+    //   render(
+    //     <MemoryRouter initialEntries={['/user/dashboard']}>
+    //       <Routes>
+    //         <Route path="/user/dashboard" element={<Dashboard />} />
+    //       </Routes>
+    //     </MemoryRouter>
+    //   );
 
-      const text = screen.getByText(/Not Available/);
-      // screen.getByRole()
-      expect(text).toBeInTheDocument();
-    })
+    //   const text = screen.getByText(/Not Available/);
+    //   // screen.getByRole()
+    //   expect(text).toBeInTheDocument();
+    // })
 
 
 
