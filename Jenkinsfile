@@ -21,6 +21,7 @@ pipeline {
                 // bat 'npm test'
                 // bat 'npm run build'
                 // bat 'npm test a'
+                bat 'npm test App.test.js --watchAll'
                 echo 'Build and tested'  
             }
         }
