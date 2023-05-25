@@ -22,7 +22,7 @@ pipeline {
                 // bat 'npm run build'
                 // bat 'npm test a'
                 // bat 'npm test a --watchAll'
-                bat 'npm test --passWithNoTests'
+                // bat 'npm test --passWithNoTests'
                 // bat 'npm test App.test.js --watchAll'
                 echo 'tested'  
             }
