@@ -117,8 +117,8 @@ function Signup() {
                     </div>
 
                     <div className='my-3'>
-                      <Label for="password">Passwoard</Label>
-                      <Input type="password" id="passwoard" placeholder='Enter Your Passwoard Here'
+                      <Label for="password">Password</Label>
+                      <Input type="password" id="password" placeholder='Enter Your Password Here'
                         onChange={(event) => onFieldChange(event, 'password')}
                         value={user.password} required
                       />

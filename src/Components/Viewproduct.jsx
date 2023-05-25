@@ -12,7 +12,7 @@ import { toast } from "react-toastify"
 import { checkLogin } from "../auth"
 
 
-function Viewproduct({addToCart}) {
+function Viewproduct({ addToCart }) {
     const navigate = useNavigate()
     const goStore = () => {
         navigate("/store/all")
@@ -35,14 +35,13 @@ function Viewproduct({addToCart}) {
         })
     }
     useEffect(() => {
-
-
-        loadSingleProduct(productId).then(data => {
-            setProduct(data)
-
-        }).catch(error => {
-            console.log(error)
-        })
+        setTimeout(() => {
+            loadSingleProduct(productId).then(data => {
+                setProduct(data);
+            }).catch(error => {
+                console.log(error)
+            })
+        });
     }, [])
 
 
@@ -61,6 +60,9 @@ function Viewproduct({addToCart}) {
         padding: '16px'
     }
     const productHtml = () => {
+        // if(!product){
+        //     return <div>Loading...</div>
+        // }
         return (
             <>
                 <div>
@@ -77,7 +79,7 @@ function Viewproduct({addToCart}) {
                                 </CardBody>
                                 <div className="text-center" style={btnSet}>
                                     <Button size="lg" color="primary" onClick={goStore} >Back</Button>
-                                    <Button size="lg" style={{ marginLeft: '30px' }} color="success" onClick={CardButton} >Add To Card</Button>
+                                    <Button size="lg" style={{ marginLeft: '30px' }} color="success" onClick={CardButton} >Add To Cart</Button>
                                     {/* <Button onClick={(event) => (checkLogin()) ? (addToCart(product)) : toast.error("Login Please then add to cart")} size='sm' className='ms-4' color={product.stock ? 'primary' : 'danger'} >{product.stock ? 'Add to Cart' : 'out of stock'}</Button> */}
 
                                 </div>
@@ -105,12 +107,17 @@ function Viewproduct({addToCart}) {
                     <div >
 
                         <Container>
-                            {
-                                product &&
-                                (product.stock ? productHtml() :
+                            {/* {
+                                product && (product.stock ? productHtml() :
                                     <h1 className="text-center text-danger my-5">Product is Out Of stock</h1>
                                 )
 
+                            } */}
+                            {
+                                product ? (
+                                    product.stock ? (productHtml()
+                                    ) : <h1 className="text-center text-danger my-5">Product is Out Of stock</h1>
+                                ): <h1 className="text-center text-danger my-5">Loading...!</h1>
                             }
                         </Container>
                     </div>

@@ -21,23 +21,23 @@ function Login() {
   const loginFormSubmit = ((event) => {
     event.preventDefault();
     if (loginData.username.trim() === '') {
-      toast.error("Username should not be blanl");
+      toast.error("Username should not be blank");
     }
 
-    if (loginData.password.trim() === '') {
+    else if (loginData.password.trim() === '') {
       toast.error("password field should not be blank");
     }
 
     //send the request to server to generated token
-    else{
-      generateToken(loginData)
-      .then((data) => {
+    
+    else {
+      generateToken(loginData).then((data) => {
         toast.success("Login Success");
         login(data, () => {
           navigate("/store/all")
         })
       }).catch(error => {
-        if (error.response.status == 400 || error.response.status == 404) {
+        if (error.response.status === 400 || error.response.status === 404) {
           toast.error(error.response.data.message)
           console.log(error)
         }

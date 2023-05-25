@@ -5,7 +5,8 @@ import { toast } from "react-toastify";
 import { Row, Col, CardText, FormGroup, Input, Table, Button, Form, Container, CardBody, Card, Pagination, PaginationItem, PaginationLink, Modal, ModalBody, ModalHeader, ModalFooter } from "reactstrap"
 import { loadProducts, deleteProduct as delete_product, loadSingleProduct } from "../../../Service/product-service";
 import { Link, useNavigate } from 'react-router-dom'
-import { Base_url } from '../../../Service/axios-helper'
+// import { Base_url } from '../../../Service/axios-helper'
+import { Base_url } from "../../../Service/product-service";
 import { searchProduct as service_searchProduct } from "../../../Service/product-service";
 
 function AdminViewproduct() {

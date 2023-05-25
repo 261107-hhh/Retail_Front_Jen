@@ -28,7 +28,7 @@ function Product({ product, addToCart }) {
                         <img style={imagesStyle} src={Base_url + '/products/images/' + product.productId} alt="" />
                     </div>
                     <CardBody style={{ 'marginTop': '2px','padding': '0px 0px 0px 19px;' }}>
-                        <h5>{product.productName.slice(0, 10)}</h5>
+                        <h5>{product.productName.slice(0, 15)}</h5>
                     </CardBody>
                     {/* <CardText style={{ 'margin-left': '14px', 'margin-bottom': '1px' }} dangerouslySetInnerHTML={{ __html: product.productDesc.slice(0, 110) }}> */}
 

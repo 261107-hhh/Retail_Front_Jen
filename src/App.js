@@ -79,6 +79,7 @@ function App() {
             <Route path="/banner" element={<Banner />}></Route>
             <Route path="/login" element={<Login />} />
             <Route path="store/:categoryId" element={<Store />} />
+            
             <Route path="viewproduct/:productId" element={<Viewproduct />} />
 
 
