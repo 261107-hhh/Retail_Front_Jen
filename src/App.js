@@ -23,7 +23,7 @@ import Adminhome from './Components/pages/admin/Adminhome';
 import Addproduct from './Components/pages/admin/Addproduct';
 import Uploadimage from './Components/pages/admin/Uploadimage';
 import Addcategory from './Components/pages/admin/Addcategory';
-import Viewproduct from '../src/Components/Viewproduct'
+import Viewproduct from './Components/Viewproduct'
 import Updateproduct from './Components/pages/admin/Updateproduct';
 import Adminuser from './Components/pages/admin/Adminuser';
 import UpdateUser from './Components/pages/admin/UpdateUser';
