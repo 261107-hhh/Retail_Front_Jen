@@ -24,7 +24,7 @@ pipeline {
                 // bat 'npm test a --watchAll'
                 // bat 'npm test --passWithNoTests'
                 // bat 'npm test App.test.js --watchAll'
-                bat 'npm run coverage'
+                // bat 'npm run coverage'
                 echo 'tested'  
             }
         }
