@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="jest tests" tests="18" failures="0" errors="0" time="5.85">
+  <testsuite name="Render App" errors="0" failures="0" skipped="0" timestamp="2023-05-29T05:03:42" time="3.817" tests="9">
+    <testcase classname="Render App should render app without errors" name="Render App should render app without errors" time="0.164">
+    </testcase>
+    <testcase classname="Render App should render Navbar" name="Render App should render Navbar" time="0.492">
+    </testcase>
+    <testcase classname="Render App should render Banner" name="Render App should render Banner" time="0.044">
+    </testcase>
+    <testcase classname="Render App Render Pages should render about Page" name="Render App Render Pages should render about Page" time="0.009">
+    </testcase>
+    <testcase classname="Render App Render Pages should render Login Page" name="Render App Render Pages should render Login Page" time="0.189">
+    </testcase>
+    <testcase classname="Render App Render Pages should render SignUp Page" name="Render App Render Pages should render SignUp Page" time="0.026">
+    </testcase>
+    <testcase classname="Render App Render Pages should render Store Page" name="Render App Render Pages should render Store Page" time="0.057">
+    </testcase>
+    <testcase classname="Render App Render Pages should render Cart Page" name="Render App Render Pages should render Cart Page" time="0.009">
+    </testcase>
+    <testcase classname="Render App Render Pages should render users Cart" name="Render App Render Pages should render users Cart" time="0.01">
+    </testcase>
+  </testsuite>
+  <testsuite name="Render App" errors="0" failures="0" skipped="0" timestamp="2023-05-29T05:03:42" time="3.835" tests="9">
+    <testcase classname="Render App should render app without errors" name="Render App should render app without errors" time="0.167">
+    </testcase>
+    <testcase classname="Render App should render Navbar" name="Render App should render Navbar" time="0.47">
+    </testcase>
+    <testcase classname="Render App should render Banner" name="Render App should render Banner" time="0.056">
+    </testcase>
+    <testcase classname="Render App Render Pages should render about Page" name="Render App Render Pages should render about Page" time="0.01">
+    </testcase>
+    <testcase classname="Render App Render Pages should render Login Page" name="Render App Render Pages should render Login Page" time="0.186">
+    </testcase>
+    <testcase classname="Render App Render Pages should render SignUp Page" name="Render App Render Pages should render SignUp Page" time="0.025">
+    </testcase>
+    <testcase classname="Render App Render Pages should render Store Page" name="Render App Render Pages should render Store Page" time="0.061">
+    </testcase>
+    <testcase classname="Render App Render Pages should render Cart Page" name="Render App Render Pages should render Cart Page" time="0.011">
+    </testcase>
+    <testcase classname="Render App Render Pages should render users Cart" name="Render App Render Pages should render users Cart" time="0.012">
+    </testcase>
+  </testsuite>
+</testsuites>

@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@babel/plugin-syntax-jsx": "^7.21.4",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
     "@mui/material": "^5.10.4",
@@ -53,27 +52,9 @@
       "last 1 safari version"
     ]
   },
-  "jest": {
-    "collectCoverageFrom": [
-      "**/*.{ts,tsx}",
-      "!**/node_modules/**",
-      "!**/build/**",
-      "!**/definitionfiles/**",
-      "!**/WebWrokers/**",
-      "!**/*.mock.ts",
-      "!src/setupTests.ts"
-    ],
-    "coverageReporters": [
-      "lcov",
-      "text"
-    ]
-  },
-  "jest-junit": {
-    "suiteName": "jest tests",
-    "output": "coverage/junit.xml",
-    "classNameTemplate": "{classname} - {title}",
-    "titleTemplate": "{classname} - {title}",
-    "ancestorSeparator": " > ",
-    "usePathForSuiteName": "true"
+  "devDependencies": {
+    "@babel/plugin-syntax-jsx": "^7.21.4",
+    "jest": "^27.5.1",
+    "jest-junit": "^16.0.0"
   }
 }
