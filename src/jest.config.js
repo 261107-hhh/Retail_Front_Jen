@@ -10,9 +10,6 @@ const jestConfig = {
         "<rootDir>/src/__tests__/*.(test).{js,jsx,ts,tsx}",
         // "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,ts,tsx}"
     ],
-    "testPathIgnorePatterns": [
-        "<rootDir>/src/Service"
-    ],
 }
 
 module.exports = jestConfig
