@@ -45,17 +45,17 @@ import React from "react";
 import { render, screen } from '@testing-library/react'
 import { Route, MemoryRouter, Routes, useParams } from "react-router-dom";
 // import App from "../App";
-import App from "../src/App"
+import App from "../App"
 // import About from "../ComponentsAbout";
-import About from "../src/Components/About";
+import About from "../Components/About";
 // import About from "../Components/About";
-import Login from "../src/Components/Login";
-import Signup from "../src/Components/Signup";
-import Store from "../src/Components/Store";
+import Login from "../Components/Login";
+import Signup from "../Components/Signup";
+import Store from "../Components/Store";
 import Viewproduct from "../Components/Viewproduct";
-import Cart from "../src/Components/Cart";
-import Dashboard from "../src/Components/Dashboard";
-import Banner from "../src/Components/Banner";
+import Cart from "../Components/Cart";
+import Dashboard from "../Components/Dashboard";
+import Banner from "../Components/Banner";
 
 describe('Render App', () => {
   test('should render app without errors', () => {
