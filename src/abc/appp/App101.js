@@ -44,9 +44,11 @@
 import React from "react";
 import { render, screen } from '@testing-library/react'
 import { Route, MemoryRouter, Routes, useParams } from "react-router-dom";
-import App from "../../App";
+// import App from "../../App";
+import App from "../../App"
 // import About from "../ComponentsAbout";
 import About from "../../Components/About";
+// import About from "../../Components/About";
 import Login from "../../Components/Login";
 import Signup from "../../Components/Signup";
 import Store from "../../Components/Store";
