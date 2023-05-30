@@ -59,10 +59,14 @@
   },
   "jest": {
     "testMatch": [
-      "**/__tests__/*.test.{ts,tsx}",
-      "!**/__tests__/**/(DISABLED.)*.[jt]s?(x)",
-      "!**/(DISABLED.)?(*.)+(spec|test).[tj]s?(x)",
-      "<rootDir>/src/__tests__/App.test.js"
+      "<rootDir>/src/__tests__/App.test.js",
+      "<rootDir>/src/App.test.js",
+      "<rootDir>/src/Components/Login.test.js",
+      "<rootDir>/src/Components/Product.test.js",
+      "<rootDir>/src/Components/SearchBarProduct.test.js",
+      "<rootDir>/src/Components/Signup.test.js",
+      "<rootDir>/src/Components/Store.test.js",
+      "<rootDir>/src/Components/ViewProduct.test.js"
     ]
   }
 }
