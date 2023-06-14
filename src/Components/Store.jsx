@@ -86,7 +86,9 @@ function Store() {
     addCart(product.productId, 1).then(data => {
       console.log(data)
       toast.success("Item add to Cart")
-    }).catch(error => { console.log(error) })
+    }).catch(error => { console.log(error) 
+      toast.error("Item cannot be added to Cart")
+    })
   }
 
 
@@ -108,6 +110,7 @@ function Store() {
             </Col>
           ))
         }
+
 
       </Row>
     </InfiniteScroll>)

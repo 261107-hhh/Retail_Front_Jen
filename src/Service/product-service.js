@@ -90,13 +90,12 @@ export const update = (product, productId) => {
 }
 
 export const searchProduct = (search) => {
- 
-  console.log(search+" : hii")
-  if(search !== ''){
+
+  console.log(search + " : hii")
+  if (search !== '') {
     return PrivateHttp.get(`/product/search/${search}`
     ).then(res => res.data);
   }
 
 }
-
 

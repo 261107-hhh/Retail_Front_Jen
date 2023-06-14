@@ -28,12 +28,16 @@ function Cart() {
         setCart(data)
 
       }).catch(error => {
-        if (error.response.data.massage = "Cart Not found") {
+        if(error.message === "Network Error"){
+          toast.error("Network Error")
+          navigate("/store/all")
+        }
+        if (error.response.data.message = "Cart Not found") {
           toast.error("Your Cart is Empty")
           navigate("/store/all")
         }
-        console.log(error.response.data.massage)
-        console.log(error)
+        // console.log(error.response.data.massage+"hello")
+        // console.log(error+" erroe")
       })
 
     }, 1000)
@@ -194,7 +198,12 @@ function Cart() {
         navigate("/user/dashboard");
         console.log("create order error")
         console.log(error)
+        if(error.response.data.message == "Order Quantity is not available"){
+          toast.error("product Quantity is not available")
+        }else
+        toast.error("Order can not be processed")
       })
+
     } else {
       toast.error("plz add at least product in Cart")
       navigate("/store/all");

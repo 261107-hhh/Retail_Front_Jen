@@ -26,12 +26,14 @@ function Viewproduct({ addToCart }) {
     const { productId } = useParams()
 
     const [product, setProduct] = useState(null)
-    const CardButton = () => {
-        console.log(product.productQuantity)
+    const CardButton = (product) => {
+        // console.log(product.productQuantity)
+        // console.log(product.productName);
         addItemToCart(productId, 1).then(data => {
             toast.success("Item Add to cart");
         }).catch(error => {
-            console.log(error)
+            toast.error("Item can not be Added to cart");
+            console.log(error) 
         })
     }
     useEffect(() => {
@@ -79,7 +81,9 @@ function Viewproduct({ addToCart }) {
                                 </CardBody>
                                 <div className="text-center" style={btnSet}>
                                     <Button size="lg" color="primary" onClick={goStore} >Back</Button>
-                                    <Button size="lg" style={{ marginLeft: '30px' }} color="success" onClick={CardButton} >Add To Cart</Button>
+                                    {/* <Button size="lg" style={{ marginLeft: '30px' }} color="success" onClick={CardButton} >Add To Cart</Button> */}
+                                    <Button size="lg" style={{ marginLeft: '30px' }} color="success" onClick={(event) => (checkLogin()) ? (CardButton(product)) : toast.error("Login Please then add to cart")} className='ms-4' >{product.stock ? 'Add to Cart' : 'out of stock'}</Button>
+
                                     {/* <Button onClick={(event) => (checkLogin()) ? (addToCart(product)) : toast.error("Login Please then add to cart")} size='sm' className='ms-4' color={product.stock ? 'primary' : 'danger'} >{product.stock ? 'Add to Cart' : 'out of stock'}</Button> */}
 
                                 </div>
@@ -116,13 +120,16 @@ function Viewproduct({ addToCart }) {
                             {
                                 product ? (
                                     product.stock ? (productHtml()
-                                    ) : <h1 className="text-center text-danger my-5">Product is Out Of stock</h1>
-                                ): <h1 className="text-center text-danger my-5">Loading...!</h1>
+                                    ) : <h1 className="text-center text-danger" style={{
+                                        "position": "absolute",
+                                        "marginTop": "7rem",
+                            }}>Product is Out Of stock</h1>
+                        ): <h1 className="text-center text-danger my-5">Loading...!</h1>
                             }
-                        </Container>
-                    </div>
-                </Base>
+                    </Container>
             </div>
+        </Base >
+            </div >
         </>
     )
 }

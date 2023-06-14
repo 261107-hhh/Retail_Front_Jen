@@ -33,3 +33,12 @@ export const getAllUser=()=>{
 export const deleteUser=(userId)=>{
     return PrivateHttp.delete(`/users/${userId}`).then(res=>res.data)
 }
+
+
+export const getUser=(userId)=>{
+    return PrivateHttp.get(`/users/${userId}`).then(res=>res.data)
+}
+
+export const updateUser=(userId, data)=>{
+    return PrivateHttp.put(`/users/${userId}`, data).then(res=>res.data)
+}
