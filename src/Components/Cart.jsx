@@ -28,7 +28,7 @@ function Cart() {
         setCart(data)
 
       }).catch(error => {
-        if(error.message === "Network Error"){
+        if (error.message === "Network Error") {
           toast.error("Network Error")
           navigate("/store/all")
         }
@@ -181,6 +181,11 @@ function Cart() {
 
   }
   const createOrder = () => {
+    if(orderDetails.address === ''){
+      toast.error("Enter address")
+      return;
+    }
+    // console.log(orderDetails.address);
     if (!window.confirm("Are You Sure Want to Proceed")) {
       return;
     }
@@ -198,10 +203,10 @@ function Cart() {
         navigate("/user/dashboard");
         console.log("create order error")
         console.log(error)
-        if(error.response.data.message == "Order Quantity is not available"){
+        if (error.response.data.message == "Order Quantity is not available") {
           toast.error("product Quantity is not available")
-        }else
-        toast.error("Order can not be processed")
+        } else
+          toast.error("Order can not be processed")
       })
 
     } else {
@@ -278,11 +283,13 @@ function Cart() {
     return (
       <div>
         {JSON.stringify(orderDetails)}
+        {/* {console.log(JSON.stringify(orderDetails)+" order details")} */}
+
         <Card style={styleOb}>
           <CardTitle className='text-center'><h5 style={{ color: 'white' }}><b>Fill the delivery Address</b></h5></CardTitle>
         </Card>
         <FormGroup>
-          <Input value={orderDetails.address} onChange={(event) => setOrderDetails({ ...orderDetails, address: event.target.value })} style={{ height: '300px', marginTop: '5%', marginLeft: '9%', width: '1000px' }} placeholder='Enter your delivery Address Here' type='textarea'> </Input>
+          <Input type='textarea' required value={orderDetails.address} onChange={(event) => setOrderDetails({ ...orderDetails, address: event.target.value })} style={{ height: '300px', marginTop: '5%', marginLeft: '9%', width: '1000px' }} placeholder='Enter your delivery Address Here' > </Input>
           <Container className='text-center'>
             <Button onClick={createOrder} style={{ marginTop: '10px' }} size="sm" block color='success'><h3>Create Order & Proceed for Payment</h3></Button>
             <Button style={{ marginTop: '10px' }} size="sm" block color='primary' onClick={() => { setOrderProceed(false) }}><h3>Back</h3></Button>
