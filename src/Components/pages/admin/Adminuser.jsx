@@ -60,9 +60,9 @@ function Adminuser() {
                                 <th>Name</th>
                                 <th>UserName</th>
                                 <th>Address</th>
-                                <th>About</th>
+                                {/* <th>About</th> */}
                                 <th>Gender</th>
-                                <th>Create At</th>
+                                {/* <th>Create At</th> */}
                                 <th>Active</th>
                                 <th>User Roles</th>
                                 <th>Mobile</th>
@@ -81,9 +81,9 @@ function Adminuser() {
                                         <td>{u.name}</td>
                                         <td>{u.email}</td>
                                         <td>{u.address}</td>
-                                        <td>{u.about}</td>
+                                        {/* <td>{u.about}</td> */}
                                         <td>{u.gender}</td>
-                                        <td>{formatDate(u.date)}</td>
+                                        {/* <td>{formatDate(u.date)}</td> */}
                                         <td>{u.active ? "True" : "False"}</td>
 
                                         <td>{u.roles.map(r =>
