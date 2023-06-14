@@ -48,8 +48,11 @@ function Dashboard() {
       console.log(data)
 
     }).catch(error => {
-      console.log(error)
-    })
+        if(error.message === "Network Error"){
+          toast.error("Network Error")
+          navigate("/store/all")
+        }
+      })
   }, [])
 
   const initializeRazorpay = () => {
