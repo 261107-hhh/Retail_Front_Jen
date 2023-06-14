@@ -46,6 +46,7 @@ describe('View Product', () => {
         expect(screen.getByRole('button', {name: 'Back'})).toBeInTheDocument();
         
         expect(screen.getByRole('button', {name: 'Add To Cart'})).toBeInTheDocument(); 
+        // expect(screen.getByRole('button', {name: 'Add To Cart'})).toBe('Add To Cart').or.toBe('out of stock'); 
 
     })
 

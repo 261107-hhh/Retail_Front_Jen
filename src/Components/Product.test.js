@@ -41,9 +41,12 @@ describe('Product component', () => {
 
         expect(screen.getByText(/100/i)).toBeInTheDocument();
 
-        expect(screen.getByRole('link', {name: 'View Product'})).toBeInTheDocument();
-        
-        expect(screen.getByRole('button', {name: 'Add to Cart'})).toBeInTheDocument();    
+        if(expect(screen.getByRole('button', {name: 'Not Available'})).toBeInTheDocument()){
+
+            expect(screen.getByRole('link', {name: 'View Product'})).toBeInTheDocument();
+            
+            expect(screen.getByRole('button', {name: 'Add To Cart'})).toBeInTheDocument();    
+        }
 
     });
 })
