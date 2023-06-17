@@ -47,3 +47,13 @@ export function successPayment(info){
     return PrivateHttp.post(`/payment/success`,f).then(res=>res.data)
 
 }
+
+export function successPaymentDone(info){
+
+    let f=new FormData();
+    
+    f.append("user_order_id",info);
+
+    return PrivateHttp.post(`/payment/success/done`,f).then(res=>res.data)
+
+}
