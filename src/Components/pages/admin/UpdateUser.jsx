@@ -186,11 +186,11 @@ function UpdateUser() {
 
                       </Input>
                     </div>
-                    <div className='my-3'>
+                    {/* <div className='my-3'>
                       <Label for={'active'}>Active</Label>
                       <Input id={'active'} className={"ms-5"} type={'checkbox'} onChange={event => onFieldChange(event, 'active')}
                        />
-                    </div>
+                    </div> */}
 
 
                     <div className='my-3'>

@@ -30,6 +30,21 @@ function Signup() {
   //   SetUser({...user,email:event.target.value})
 
   // }
+
+  const resetdata = (event => {
+    event.preventDefault()
+    const data = {
+      name: '',
+      email: '',
+      password: '',
+      about: '',
+      address: '',
+      phone: '',
+      gender: ' '
+    }
+    SetUser(data);
+
+  })
   const registerUser = (event => {
     event.preventDefault()
     console.log(event)
@@ -98,7 +113,7 @@ function Signup() {
                 <CardBody>
                   {/* {JSON.stringify(user)}  */}
                   <h3 className='text-center '>SignUp</h3>
-                  <form onSubmit={registerUser}>
+                  <form onSubmit={registerUser} onReset={resetdata}>
                     <div className='my-3'>
                       <Label for="name">Name</Label>
                       <Input type="text" id="name" placeholder='Enter Your Name Here'
@@ -138,7 +153,7 @@ function Signup() {
                       <Label for="about">Enter about yourself in short</Label>
                       <Input id="about" type="textarea" placeholder='Enter your about yourself in short Here'
                         onChange={(event) => onFieldChange(event, 'about')}
-                      //value={user.about}
+                        value={user.about}
                       />
                     </div>
 
@@ -166,7 +181,7 @@ function Signup() {
                       /> */}
                       <Input type="telephone" id="phone" value={user.phone} placeholder="Phone Number"
                         onChange={(event) => onFieldChange(event, 'phone')}
-                        pattern ="[0-9]{10}"
+                        pattern="[0-9]{10}"
                         required
 
                       />
@@ -174,10 +189,12 @@ function Signup() {
 
                     <div className='my-3 text-center'>
                       <Button block color='success'>signup</Button>
+                      {/* <Input type='submit'>signup</Input> */}
                     </div>
 
                     <div className='my-3 text-center'>
-                      <Button block color='warning'>Reset</Button>
+                      <Button block onClick={resetdata} color='warning'>Reset</Button>
+                      {/* <Input color='warning' type='reset'>Reset</Input> */}
                     </div>
 
 

@@ -51,7 +51,7 @@ describe('Signup component', () => {
         fireEvent.change(screen.getByLabelText(/gender/i), { target: { value: "Male" } });
         fireEvent.change(screen.getByLabelText(/mobile number/i), { target: { value: "1234567890" } });
 
-        fireEvent.click(screen.getByText('signup', { selector: 'button' }))
+        fireEvent.click(screen.getByText('signup'))
 
         expect(createUser).toHaveBeenCalledWith({
             name: 'test1',

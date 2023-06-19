@@ -31,7 +31,7 @@ describe('Product component', () => {
 
         render(
             <MemoryRouter>
-                <Product product={product} addToCart={addToCartMock}> </Product>);
+                <Product product={product} addToCart={addToCartMock}> </Product>;
             </MemoryRouter>
         )
 

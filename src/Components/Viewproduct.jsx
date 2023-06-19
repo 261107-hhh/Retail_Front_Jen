@@ -82,7 +82,7 @@ function Viewproduct({ addToCart }) {
                                 <div className="text-center" style={btnSet}>
                                     <Button size="lg" color="primary" onClick={goStore} >Back</Button>
                                     {/* <Button size="lg" style={{ marginLeft: '30px' }} color="success" onClick={CardButton} >Add To Cart</Button> */}
-                                    <Button size="lg" style={{ marginLeft: '30px' }} color="success" onClick={(event) => (checkLogin()) ? (CardButton(product)) : toast.error("Login Please then add to cart")} className='ms-4' >{product.stock ? 'Add To Cart' : 'out of stock'}</Button>
+                                    <Button size="lg" style={{ marginLeft: '30px' }} color={product.stock ? 'primary' : 'danger'} onClick={(event) => (checkLogin()) ? (CardButton(product)) : toast.error("Please Login")} className='ms-4' >{product.stock ? 'Add To Cart' : 'out of stock'}</Button>
 
                                     {/* <Button onClick={(event) => (checkLogin()) ? (addToCart(product)) : toast.error("Login Please then add to cart")} size='sm' className='ms-4' color={product.stock ? 'primary' : 'danger'} >{product.stock ? 'Add to Cart' : 'out of stock'}</Button> */}
 
@@ -117,7 +117,7 @@ function Viewproduct({ addToCart }) {
                                 )
 
                             } */}
-                            {
+                            {/* {
                                 product ? (
                                     product.stock ? (productHtml()
                                     ) : <h1 className="text-center text-danger" style={{
@@ -125,6 +125,11 @@ function Viewproduct({ addToCart }) {
                                         "marginTop": "7rem",
                             }}>Product is Out Of stock</h1>
                         ): <h1 className="text-center text-danger my-5">Loading...!</h1>
+                            } */}
+                            {
+                                product ? productHtml() :
+                                    <h1 className="text-center text-danger my-5">Loading...</h1>
+
                             }
                     </Container>
             </div>
