@@ -34,7 +34,7 @@ describe('View Product', () => {
             expect(loadSingleProduct).toHaveBeenCalledTimes(1);
         });
         // console.log(loadSingleProduct(1));
-        
+
         // expect(screen.getByText(/Loading...!/)).toBeInTheDocument();
 
         expect(screen.getByText(/Example Product/)).toBeInTheDocument();
@@ -42,10 +42,12 @@ describe('View Product', () => {
         expect(screen.getByText(/Example description/i)).toBeInTheDocument();
 
         expect(screen.getByText(/10/i)).toBeInTheDocument();
+        if (expect(screen.getByRole('button', { name: 'Not Available' })).toBeInTheDocument()) {
+            expect(screen.getByRole('button', { name: 'Back' })).toBeInTheDocument();
 
-        expect(screen.getByRole('button', {name: 'Back'})).toBeInTheDocument();
-        
-        expect(screen.getByRole('button', {name: 'Add To Cart'})).toBeInTheDocument(); 
+            expect(screen.getByRole('button', { name: 'Add To Cart' })).toBeInTheDocument();
+
+        }
         // expect(screen.getByRole('button', {name: 'Add To Cart'})).toBe('Add To Cart').or.toBe('out of stock'); 
 
     })

@@ -37,6 +37,7 @@ import { Button, Card, CardBody, CardText, Col, Container, Row } from 'reactstra
 import { addItemToCart } from '../Service/cartService';
 import { toast } from 'react-toastify';
 import Base from './Base';
+import { checkLogin } from '../auth';
 
 const SearchCompo = () => {
     const navigate = useNavigate();
@@ -102,13 +103,39 @@ const SearchCompo = () => {
 
 
     const result = data.map((val, key) => {
-        const CardButton = () => {
-            console.log(val.productQuantity)
-            addItemToCart(val.productId, 1).then(data => {
+        // const CardButton = () => {
+        //     console.log(val.productQuantity)
+        //     addItemToCart(val.productId, 1).then(data => {
+        //         toast.success("Item Add to cart");
+        //     }).catch(error => {
+        //         console.log(error)
+        //         toast.error("Please Login");
+        //     })
+        // }
+        const CardButton = (product) => {
+            // console.log(product.productQuantity)
+            // console.log(product.productName);
+            addItemToCart(product.productId, 1).then(data => {
                 toast.success("Item Add to cart");
             }).catch(error => {
+                toast.error("Item can not be Added to cart");
                 console.log(error)
             })
+        }
+        const butt = () => {
+            return (
+                <>
+                    {/* <Button tag={Link} to={'/viewproduct/' + product.productId} size='sm' className='my-3' color='success' >View Product</Button> */}
+
+                    {/* <Button to ={} size='sm' className='my-3' color='success' >View Product</Button> */}
+
+                    {/* <Button onClick={(event) => (checkLogin()) ? (addToCart(product)) : toast.error("Please Login")} size='sm' className='ms-4' color={product.stock ? 'primary' : 'danger'} >{product.stock ? 'Add to Cart' : 'out of stock'}</Button> */}
+                    <Button size="lg" color="primary" onClick={goStore} >Back</Button>
+                    <Button size="lg" style={{ marginLeft: '30px' }} color={val.stock ? 'success' : 'danger'} onClick={(event) => (checkLogin()) ? (CardButton(val)) : toast.error("Please Login")} className='ms-4' >{val.stock ? 'Add To Cart' : 'out of stock'}</Button>
+
+                </>
+            )
+
         }
         return (
             <>
@@ -127,8 +154,15 @@ const SearchCompo = () => {
                                         <CardText></CardText>
                                     </CardBody>
                                     <div className="text-center" style={btnSet}>
-                                        <Button size="lg" color="primary" onClick={goStore} >Back</Button>
-                                        <Button size="lg" style={{ marginLeft: '30px' }} color="success" onClick={CardButton} >Add To Card</Button>
+                                        {/* <Button size="lg" color="primary" onClick={goStore} >Back</Button>
+                                        <Button size="lg" style={{ marginLeft: '30px' }} color="success" onClick={CardButton} >Add To Cart</Button> */}
+                                       
+                                        {/* <Button size="lg" color="primary" onClick={goStore} >Back</Button>
+                                        <Button size="lg" style={{ marginLeft: '30px' }} color={val.stock ? 'success' : 'danger'} onClick={(event) => (checkLogin()) ? (CardButton(val)) : toast.error("Please Login")} className='ms-4' >{val.stock ? 'Add To Cart' : 'out of stock'}</Button> */}
+                                        {
+                                            val.live ? butt() : <Button size="lg"  color='success' >Not Available</Button>
+                                        }
+
                                     </div>
                                 </Card>)}
 
@@ -147,24 +181,24 @@ const SearchCompo = () => {
     // console.log("This is compo: "+JSON.stringify(par));
     return (
         <div
-         style={{
-            'marginTop': '63px',
-            'marginBottom': '-15px',
-            // 'backgroundSize': 'cover',
-            'height': '110vh',
-            'objectFit': 'contain',
-            // 'backgroundImage': "url('')",
-            'backgroundImage': "url('Images/About.jpg')",
-        }}
+            style={{
+                'marginTop': '63px',
+                'marginBottom': '-15px',
+                // 'backgroundSize': 'cover',
+                'height': '110vh',
+                'objectFit': 'contain',
+                // 'backgroundImage': "url('')",
+                'backgroundImage': "url('Images/About.jpg')",
+            }}
         >
             <Base>
             </Base>
             {/* <Container style={{
                 'marginTop': '-2rem'
             }} > */}
-                <ul style={{
-                    'backgroundImage': "url('Images/About.jpg')",
-                }}>{result}</ul>
+            <ul style={{
+                'backgroundImage': "url('Images/About.jpg')",
+            }}>{result}</ul>
             {/* </Container> */}
         </div>
     )

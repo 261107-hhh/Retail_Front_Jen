@@ -450,8 +450,12 @@ const SearchBarProduct = ({ search, par }) => {
     const navigate = useNavigate();
     const [ed, setEd] = useState(true);
     const handelChange = (e) => {
+        // color={product.stock ? 'primary' : 'danger'}
         setEd(true)
         setproductName(e.target.value);
+        if(e.target.value.length == 0){
+            setEd(false)
+        }
         search(e.target.value);
         console.log(par + " parrrrrrrrr")
     }
