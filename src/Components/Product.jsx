@@ -22,7 +22,7 @@ function Product({ product, addToCart }) {
 
                 {/* <Button to ={} size='sm' className='my-3' color='success' >View Product</Button> */}
 
-                <Button onClick={(event) => (checkLogin()) ? (addToCart(product)) : toast.error("Login Please then add to cart")} size='sm' className='ms-4' color={product.stock ? 'primary' : 'danger'} >{product.stock ? 'Add to Cart' : 'out of stock'}</Button>
+                <Button onClick={(event) => (checkLogin()) ? (addToCart(product)) : toast.error("Please Login")} size='sm' className='ms-4' color={product.stock ? 'primary' : 'danger'} >{product.stock ? 'Add to Cart' : 'out of stock'}</Button>
 
             </>
         )
