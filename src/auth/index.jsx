@@ -11,7 +11,7 @@ const clearStorage = () => {
   }
   sessionStorage.setItem("data", 1)
 }
-window.addEventListener('load', clearStorage)
+// window.addEventListener('load', clearStorage)
 //logout
 export const logout = (next) => {
   localStorage.removeItem("data");
