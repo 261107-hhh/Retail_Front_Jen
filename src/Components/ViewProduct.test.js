@@ -35,9 +35,9 @@ describe('View Product', () => {
         });
         // console.log(loadSingleProduct(1));
 
-        // expect(screen.getByText(/Loading...!/)).toBeInTheDocument();
+        // expect(screen.getByText(/Loading.../i)).toBeInTheDocument();
 
-        expect(screen.getByText(/Example Product/)).toBeInTheDocument();
+        expect(screen.getByText(/Example Product/i)).toBeInTheDocument();
 
         expect(screen.getByText(/Example description/i)).toBeInTheDocument();
 
